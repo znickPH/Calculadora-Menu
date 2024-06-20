@@ -1,48 +1,156 @@
-# Prerequisites
-*.d
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
 
-# Linker output
-*.ilk
-*.map
-*.exp
+namespace Calculadora
+{
+    internal class Program
+    {
+        enum Menu { Soma = 1, Subtração, Multiplicação, Divisão, Raiz, Potência, Sair }
+        static void Main(string[] args)
+        {
+            bool sair = false;
 
-# Precompiled Headers
-*.gch
-*.pch
+            while (!sair)
+            {
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+                Console.WriteLine("                                  _E L M O R - C A L C U L A T O R_\nESCOLHA UMA OPERAÇÃO");
+                Console.WriteLine("1-SOMA\n2-SUBTRAÇÃO\n3-MULTIPLICAÇÃO\n4-DIVISÃO\n5-RAIZ\n6-POTÊNCIA\n7-SAIR");
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+                Menu op = (Menu)int.Parse(Console.ReadLine());
 
-# Kernel Module Compile Results
+                switch (op)
+                {
+                    
+                    case Menu.Soma:
+                        Soma();
+                        break;
+                    case Menu.Subtração:
+                        Subtração();
+                        break;
+                    case Menu.Multiplicação:
+                        Multiplicação();
+                        break;
+                    case Menu.Divisão:
+                        Divisão();
+                        break;
+                    case Menu.Raiz:
+                        Raiz();
+                        break;
+                    case Menu.Potência:
+                        Pot();
+                        break;
+                    case Menu.Sair:
+                        sair = true;
+                        break;
+                }
+                Console.Clear();
+            }
+        }
+
+        static void Soma()
+        {
+            int a, b, res;
+
+            Console.WriteLine("Digite o primeiro número:");
+            a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o segundo número:");
+            b = int.Parse(Console.ReadLine());
+
+            res = a + b;
+
+            Console.WriteLine($"Resultado:{res}");
+            Console.WriteLine("Aperte ENTER para voltar.");
+            Console.ReadLine();
+
+        }
+
+        static void Subtração()
+        {
+            int a, b, res;
+
+            Console.WriteLine("Digite o primeiro número:");
+            a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o segundo número");
+            b = int.Parse(Console.ReadLine());
+
+            res = a - b;
+
+            Console.WriteLine($"Resultado:{res}");
+            Console.WriteLine("Aperte ENTER para voltar.");
+            Console.ReadLine();
+
+        }
+
+        static void Multiplicação()
+        {
+
+
+            Console.WriteLine("Digite o primeiro número");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o segundo número");
+            int b = int.Parse(Console.ReadLine());
+
+            int res = a * b;
+
+            Console.WriteLine($"Resultado: {res}");
+            Console.WriteLine();
+            Console.ReadLine();
+
+        }
+        static void Divisão()
+        {
+            float a, b, res;
+
+            Console.WriteLine("Digite o primeiro número");
+            a = float.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o segundo número");
+            b = float.Parse(Console.ReadLine());
+
+            res = a / b;
+
+            Console.WriteLine($"Resultado: {res}");
+            Console.WriteLine("Aperte ENTER para voltar.");
+            Console.ReadLine();
+
+        }
+
+        static void Pot()
+        {
+            Console.WriteLine("Digite a base:");
+            int base1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o expoente:");
+            int exp1 = int.Parse(Console.ReadLine());
+
+            double res = Math.Pow(base1, exp1);
+
+            Console.WriteLine($"Resultado: {res}");
+            Console.WriteLine("Aperte ENTER para voltar.");
+            Console.ReadLine();
+        }
+
+        static void Raiz()
+        {
+            Console.WriteLine("Digite a raiz:");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o número");
+
+
+            double res = Math.Sqrt(a);
+
+            Console.WriteLine($"Resultado: {res}");
+            Console.WriteLine("Aperte ENTER para voltar.");
+            Console.ReadLine();
+
+        }
+    }
+}
 *.mod*
 *.cmd
 .tmp_versions/
